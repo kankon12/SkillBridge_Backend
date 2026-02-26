@@ -2,15 +2,17 @@ import express, { Application } from "express";
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./lib/auth";
 import cors from "cors";
-import { notFound } from "./middleware/notFound";
-import errorHandler from "./middleware/globalErrorHandler";
-import {  categoryRouter } from "./modules/category/category.router";
-import { tutorRouter } from "./modules/tutor/tutor.router";
-import { availabilityRouter } from "./modules/availability/availability.router";
-import { bookingRouter } from "./modules/booking/booking.router";
-import { userRouter } from "./modules/user/user.router";
-import { reviewRouter } from "./modules/review/review.router";
-import { AdminRouter } from "./modules/admin/admin.router";
+import { notFound } from "./middlewares/notFound";
+import errorHandler from "./middlewares/globalErrorHandler";
+
+
+import { categoryRouter } from "./modules/category/category.route";
+import { tutorRouter } from "./modules/tutor/tutor.route";
+import { availabilityRouter } from "./modules/availability/availability.route";
+import { bookingRouter } from "./modules/booking/booking.route";
+import { userRouter } from "./modules/user/user.route";
+import { reviewRouter } from "./modules/review/review.service";
+import { AdminRouter } from "./modules/admin/admin.route";
 
 const app: Application = express();
 
