@@ -3,6 +3,7 @@ import { prisma } from "../../lib/prisma";
 import { CreateTutorProfileInput } from "../../types/tutorProfile.type";
 
 
+
 const createTutorProfile = async (payload: CreateTutorProfileInput) => {
     const {userId} = payload;
     const existing = await prisma.tutorProfile.findUnique({ where: { userId } });

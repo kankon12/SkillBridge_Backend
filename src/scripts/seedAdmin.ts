@@ -2,6 +2,7 @@ import { prisma } from "../lib/prisma";
 import { Role } from "../types/enum";
 
 
+
 async function seedAdmin() {
     try {
         console.log("***** Admin Seeding Started....")

@@ -1,7 +1,8 @@
 import { Router } from "express";
-import auth from "../../middleware/auth";
-import { Role } from "../../types/enum";
+import auth from "../../middlewares/auth";
+
 import { reviewController } from "./review.controller";
+import { Role } from "../../types/enum";
 
 
 const router = Router();
