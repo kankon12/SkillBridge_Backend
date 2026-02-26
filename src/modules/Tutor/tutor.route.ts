@@ -1,7 +1,8 @@
 import  { Router } from "express";
 import { tutorController } from "./tutor.controller";
-import auth from "../../middleware/auth";
+import auth from "../../middlewares/auth";
 import { Role } from "../../types/enum";
+
 
 
 
