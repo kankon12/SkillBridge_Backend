@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
-import { Role } from "../types/enum";
+
 import { auth as betterAuth } from "../lib/auth" 
+import { Role } from "../types/enum";
 
 
 declare global {

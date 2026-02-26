@@ -1,8 +1,9 @@
 import express, { Router } from 'express';
 import { CategoryController } from './category.controller';
 
-import { Role } from '../../types/enum';
+
 import auth from '../../middlewares/auth';
+import { Role } from '../../types/enum';
 const router =  Router();
 
 router.get(

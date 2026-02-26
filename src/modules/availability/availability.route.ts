@@ -3,6 +3,7 @@ import { availabilityController } from "./availability.controller";
 import auth from "../../middlewares/auth";
 import { Role } from "../../types/enum";
 
+
 const router = Router();
 
 

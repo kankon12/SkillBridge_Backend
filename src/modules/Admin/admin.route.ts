@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { adminController } from "./admin.controller";
-import auth from "../../middleware/auth";
+import auth from "../../middlewares/auth";
 import { Role } from "../../types/enum";
+
 
 const router = Router();
 
