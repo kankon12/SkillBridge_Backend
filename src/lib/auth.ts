@@ -69,7 +69,7 @@ export const auth = betterAuth({
 
             try{
                 const info = await transporter.sendMail({
-                    from: '"SkillBridge<skillBridge.corp@gmail.com>',
+                    from: '"SkillBridge<skillBridge.konkan@gmail.com>',
                     to: user.email,
                     subject: "Varify your email address",
                     html: `
