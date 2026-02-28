@@ -5,19 +5,14 @@ const PORT = process.env.PORT || 5000;
 
 // Database connection check
 prisma.$connect()
-    .then(() => {
-        console.log("Connected to the database successfully.");
-    })
-    .catch((error) => {
-        console.error("Database connection error:", error);
-    });
+    .then(() => console.log("Database connected"))
+    .catch((err) => console.error("Database connection error:", err));
 
-// IMPORTANT: Local development-e app run korar jonno
+// Local-e run korar jonno (Vercel-e eta bypass hobe)
 if (process.env.NODE_ENV !== "production") {
     app.listen(PORT, () => {
         console.log(`Server is running locally on port ${PORT}`);
     });
 }
 
-// Vercel er jonno export kora
-export default app;
+export default app; // Vercel er jonno eta oboshsoi dorkar
