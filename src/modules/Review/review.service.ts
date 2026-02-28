@@ -1,22 +1,69 @@
-import { Router } from "express";
-import auth from "../../middlewares/auth";
-
-import { reviewController } from "./review.controller";
-import { Role } from "../../types/enum";
+import { prisma } from "../../lib/prisma";
 
 
-const router = Router();
+const createReview = async(payload:Record<string,any>) => {
+    const { bookingId, rating, comment } = payload;
 
-router.post(
-    "/create",
-    auth(Role.STUDENT),
-    reviewController.createReview
-)
+    const existingReview = await prisma.reviews.findUnique({
+      where: { bookingId },
+    });
 
-router.get(
-    "/get-reviews/:id",
-    reviewController.getReviewByTutorId
-)
+    
+
+    if(existingReview){
+        throw new Error("Reviews Already Exists");
+    }
 
 
-export const reviewRouter = router;
+    const review = await prisma.reviews.create({
+      data: {
+        bookingId,
+        rating,
+        comment,
+      },
+    });
+
+    return review;
+
+
+}
+
+const getReviewByTutorId = async(tutorId:string) => {
+   
+  const reviews = await prisma.reviews.findMany({
+    where: {
+      booking: {
+        tutorId: tutorId,
+      },
+    },
+    select: {
+      id: true,
+      rating: true,
+      comment: true,
+      created_at: true,
+      booking: {
+        select: {
+          student: {
+            select: {
+              name: true,
+              image: true,
+            },
+          },
+        },
+      },
+    },
+    orderBy: {
+      created_at: "desc",
+    },
+  });
+
+  return reviews;
+}
+
+
+
+
+export const reviewService = {
+    createReview,
+    getReviewByTutorId,
+}

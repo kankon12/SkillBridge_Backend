@@ -24,7 +24,7 @@ app.use("/api/v1", router);
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     success: true,
-    message: "Welcome to SkillBridge API",
+    message: "Welcome to SkillBridge ",
     timestamp: new Date().toISOString(),
   });
 });

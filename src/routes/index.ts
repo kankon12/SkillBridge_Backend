@@ -4,8 +4,9 @@ import { tutorRouter } from "../modules/tutor/tutor.route";
 import { availabilityRouter } from "../modules/availability/availability.route";
 import { bookingRouter } from "../modules/booking/booking.route";
 import { userRouter } from "../modules/user/user.route";
-import { reviewRouter } from "../modules/review/review.service";
+
 import { AdminRouter } from "../modules/admin/admin.route";
+import { reviewRouter } from "../modules/review/review.route";
 
 
 const router = Router();
