@@ -2,15 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/server.mjs",
-      "use": "@vercel/node"
+      "src": "dist/server.mjs",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["node_modules/.prisma/**"] }
     }
   ],
   "routes": [
     {
-      "src": "/(.)*",
-      "dest": "/api/server.mjs"
+      "src": "/(.*)",
+      "dest": "dist/server.mjs"
     }
   ]
-
 }
