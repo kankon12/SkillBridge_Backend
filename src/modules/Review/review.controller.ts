@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { reviewService } from "./review.route";
+import { reviewService } from "./review.service";
+
 
 
 
