@@ -3,21 +3,21 @@ import { prisma } from "./lib/prisma";
 
 const PORT = process.env.PORT || 5000;
 
-async function main() {
-    try {
-        await prisma.$connect();
-        // console.log("Connected to the database successfully.");
-        if(process.env.NODE_ENV !== "production"){
-            app.listen(PORT, () => {
-                console.log(`Server is running on ${PORT}`);
-            });
-        }
-    } catch (error) {
-        console.error("An error occurred:", error);
-        
-    }
+// Database connection check
+prisma.$connect()
+    .then(() => {
+        console.log("Connected to the database successfully.");
+    })
+    .catch((error) => {
+        console.error("Database connection error:", error);
+    });
+
+// IMPORTANT: Local development-e app run korar jonno
+if (process.env.NODE_ENV !== "production") {
+    app.listen(PORT, () => {
+        console.log(`Server is running locally on port ${PORT}`);
+    });
 }
 
-main();
-
+// Vercel er jonno export kora
 export default app;
